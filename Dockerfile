@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-alpine as build-jar
 WORKDIR /app
 RUN apk update && apk add git maven
 RUN git clone https://github.com/dstar55/docker-hello-world-spring-boot /app
-RUN mvn clean install
+RUN mvn clean test install
 
 FROM openjdk:8-jre-alpine as build-image
 
