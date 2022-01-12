@@ -28,7 +28,7 @@ pipeline {
     CURR_COMMIT_MSG = sh(
       returnStdout: true, script: 'git log --format=%B -n 1 HEAD'
     ).trim()
-    APP_VERSION = "1.0.0" # readMavenPom().getVersion()
+    APP_VERSION = "1.0.0"
     IS_JOB_INCREMENT = CURR_COMMIT_MSG.equals('v' + APP_VERSION)
     ITERATION_TYPE = setVersionIteration(CURR_COMMIT_MSG)
     CI = true
