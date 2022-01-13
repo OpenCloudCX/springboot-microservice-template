@@ -7,6 +7,6 @@ RUN mkdir /app
 COPY . .
 
 RUN mvn clean install
-RUN cp /target/*.jar /app/
+RUN cp -r /target/ /app/
 
-ENTRYPOINT ["java","-jar","/app/odos-java-microservice*.jar"]
+ENTRYPOINT ["java","-jar","/app/target/odos-java-microservice*.jar"]
