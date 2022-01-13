@@ -1,12 +1,8 @@
-FROM openjdk:8-jdk-alpine
-# ENV JAVA_HOME="/usr/lib/jvm/jre-openjdk"
+FROM openjdk:8-jre-alpine
 
-RUN apk update && apk add git maven
-RUN mkdir /app
+WORKDIR /app
+COPY /target/odos-java-microservice*.jar /app/target/
 
-COPY . .
-
-RUN mvn clean install
-RUN cp -r /target/ /app/
+EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/app/target/odos-java-microservice*.jar"]
