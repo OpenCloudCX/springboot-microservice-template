@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-alpine as build-jar
 WORKDIR /app
 RUN apk update && apk add git maven
 COPY . .
-RUN mvn -q clean test install
+RUN mvn -q clean install
 
 FROM openjdk:8-jre-alpine as build-image
 
