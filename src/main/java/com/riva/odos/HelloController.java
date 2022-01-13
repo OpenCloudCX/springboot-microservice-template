@@ -1,4 +1,4 @@
-package com.dockerforjavadevelopers.hello;
+package com.riva.odos;
 
 
 import org.springframework.web.bind.annotation.RestController;
