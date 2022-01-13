@@ -1,14 +1,12 @@
-FROM openjdk:8-jdk-alpine as build-jar
+FROM openjdk:8-jdk-alpine
+# ENV JAVA_HOME="/usr/lib/jvm/jre-openjdk"
 
-WORKDIR /app
 RUN apk update && apk add git maven
+RUN mkdir /app
+
 COPY . .
+
 RUN mvn clean install
+RUN cp /target/*.jar /app/
 
-FROM openjdk:8-jre-alpine as build-image
-
-WORKDIR /app
-COPY --from=build-jar /app/target/odos-java-microservice*.jar /app/data/
-
-EXPOSE 8080
-CMD java -jar /app/data/odos-java-microservice-0.1.0.jar
+ENTRYPOINT ["java","-jar","/app/odos-java-microservice*.jar"]
