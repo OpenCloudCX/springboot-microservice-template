@@ -1,5 +1,4 @@
-package com.dockerforjavadevelopers.hello;
-
+package com.riva.odos.api.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +8,7 @@ public class HelloController {
     
     @RequestMapping("/")
     public String index() {
-        return "Hello World\n";
+        return "Hello, World!!\n";
     }
     
 }
